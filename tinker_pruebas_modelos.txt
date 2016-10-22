@@ -1,0 +1,268 @@
+$ php artisan tinker
+Psy Shell v0.7.2 (PHP 5.6.15 ÔÇö cli) by Justin Hileman
+>>> $user = new ConsulNet\User;
+=> ConsulNet\User {#639}
+>>> $paciente = new ConsulNet\Paciente;
+=> ConsulNet\Paciente {#640}
+
+>>> $x = $user->paciente()->get();
+=> Illuminate\Database\Eloquent\Collection {#644
+     all: [],
+   }
+>>> $x = $paciente->usuario()->get();
+=> Illuminate\Database\Eloquent\Collection {#656
+     all: [],
+   }
+
+>>> $x = ConsulNet\User::where('name','Sadie');
+=> Illuminate\Database\Eloquent\Builder {#658}
+
+>>> $x = ConsulNet\User::where('name','Sadie')->get();;
+=> Illuminate\Database\Eloquent\Collection {#664
+     all: [
+       ConsulNet\User {#665
+         id: 4,
+         name: "Sadie",
+         nom: "Misty Connelly",
+         email: "Jones.Susanna@yahoo.com",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+       },
+     ],
+   }
+
+
+>>> $x = $user->where('name','Sadie')->get();;
+=> Illuminate\Database\Eloquent\Collection {#660
+     all: [
+       ConsulNet\User {#663
+         id: 4,
+         name: "Sadie",
+         nom: "Misty Connelly",
+         email: "Jones.Susanna@yahoo.com",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+       },
+     ],
+   }
+
+>>> $x = $user->where('name','Sadie')->first();;
+=> ConsulNet\User {#661
+     id: 4,
+     name: "Sadie",
+     nom: "Misty Connelly",
+     email: "Jones.Susanna@yahoo.com",
+     priv: 4,
+     created_at: null,
+     updated_at: null,
+   }
+>>> $p = $x->paciente;
+=> ConsulNet\Paciente {#665
+     id: 1,
+     id_user: 4,
+     fena: "2015-04-08",
+     ts: 1,
+     con_esp: null,
+     created_at: "2016-04-04 00:00:00",
+     updated_at: "2016-04-04 00:00:00",
+   }
+>>> $p = $x->paciente->ts;
+=> 1
+
+>>> $user->with('paciente')->get();
+=> Illuminate\Database\Eloquent\Collection {#671
+     all: [
+       ConsulNet\User {#678
+         id: 1,
+         name: "PROMETEO",
+         nom: "Enrique Rosales B",
+         email: "erosales@ucol.mx",
+         priv: 0,
+         created_at: "2016-03-19 20:40:52",
+         updated_at: "2016-04-03 20:10:45",
+         paciente: null,
+       },
+       ConsulNet\User {#679
+         id: 2,
+         name: "Rosita",
+         nom: "Rosita Bonita",
+         email: "almaros.gl@gmail.com",
+         priv: 5,
+         created_at: "2016-03-23 10:44:41",
+         updated_at: "2016-03-31 11:31:02",
+         paciente: null,
+       },
+       ConsulNet\User {#680
+         id: 4,
+         name: "Sadie",
+         nom: "Misty Connelly",
+         email: "Jones.Susanna@yahoo.com",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+         paciente: ConsulNet\Paciente {#670
+           id: 1,
+           id_user: 4,
+           fena: "2015-04-08",
+           ts: 1,
+           con_esp: null,
+           created_at: "2016-04-04 00:00:00",
+           updated_at: "2016-04-04 00:00:00",
+         },
+       },
+       ConsulNet\User {#681
+         id: 5,
+         name: "Keely",
+         nom: "Rachael Gerlach",
+         email: "Mariam.Koelpin@Bruen.com",
+         priv: 2,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#682
+         id: 6,
+         name: "Monroe",
+         nom: "Marcelina Mills",
+         email: "qCremin@Prosacco.com",
+         priv: 5,
+         created_at: null,
+         updated_at: "2016-03-26 16:59:03",
+         paciente: null,
+       },
+       ConsulNet\User {#683
+         id: 7,
+         name: "Duane",
+         nom: "Omer Predovic",
+         email: "Kautzer.Luisa@Blanda.com",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#684
+         id: 8,
+         name: "Lyda",
+         nom: "Malvina Howe",
+         email: "Paula.Hilpert@yahoo.com",
+         priv: 3,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#685
+         id: 9,
+         name: "Alanis",
+         nom: "Frederic Raynor",
+         email: "Terrell.Kuphal@Ferry.com",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#686
+         id: 11,
+         name: "Edwin",
+         nom: "Daisy Grant",
+         email: "Dakota11@Osinski.info",
+         priv: 4,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#687
+         id: 12,
+         name: "Elva",
+         nom: "Glenda Lubowitz DDS",
+         email: "Boehm.Maximo@gmail.com",
+         priv: 2,
+         created_at: null,
+         updated_at: null,
+         paciente: null,
+       },
+       ConsulNet\User {#688
+         id: 13,
+         name: "Peter",
+         nom: "Peter Pan",
+         email: "peterp@gmail.com",
+         priv: 4,
+         created_at: "2016-03-30 09:55:14",
+         updated_at: "2016-03-30 11:19:37",
+         paciente: null,
+       },
+       ConsulNet\User {#689
+         id: 14,
+         name: "Dante",
+         nom: "Dante Y",
+         email: "dante@alieri.com",
+         priv: 2,
+         created_at: "2016-03-31 11:25:03",
+         updated_at: "2016-03-31 11:33:50",
+         paciente: null,
+       },
+       ConsulNet\User {#690
+         id: 15,
+         name: "Oscar",
+         nom: "Oscar Gonzalez",
+         email: "oscarg@gail.com",
+         priv: 2,
+         created_at: "2016-04-03 11:16:27",
+         updated_at: "2016-04-03 11:16:27",
+         paciente: null,
+       },
+     ],
+   }
+>>>
+
+
+Siguiente día, caputré otro paciente
+.
+.
+.
+>>> $x = $paciente->with('usuario')->get();
+=> Illuminate\Database\Eloquent\Collection {#803
+     all: [
+       ConsulNet\Paciente {#794
+         id: 1,
+         id_user: 4,
+         fena: "2015-04-08",
+         ts: 1,
+         con_esp: null,
+         created_at: "2016-04-04 00:00:00",
+         updated_at: "2016-04-04 00:00:00",
+         usuario: ConsulNet\User {#804
+           id: 4,
+           name: "Sadie",
+           nom: "Misty Connelly",
+           email: "Jones.Susanna@yahoo.com",
+           priv: 4,
+           created_at: null,
+           updated_at: null,
+         },
+       },
+       ConsulNet\Paciente {#752
+         id: 2,
+         id_user: 9,
+         fena: "2015-04-08",
+         ts: 1,
+         con_esp: null,
+         created_at: "2016-04-05 00:00:00",
+         updated_at: "2016-04-05 00:00:00",
+         usuario: ConsulNet\User {#805
+           id: 9,
+           name: "Alanis",
+           nom: "Frederic Raynor",
+           email: "Terrell.Kuphal@Ferry.com",
+           priv: 4,
+           created_at: null,
+           updated_at: null,
+         },
+       },
+     ],
+   }
+>>> foreach($x as $p){echo $p->usuario->name.' ';}
+Sadie Alanis ÔÅÄ
+=> null
+>>>
